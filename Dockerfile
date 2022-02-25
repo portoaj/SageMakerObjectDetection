@@ -30,8 +30,6 @@ RUN apt-get update \
     python3-setuptools \
     libxft-dev \
     zlib1g-dev \
-    tesseract-ocr \
-    libtesseract-dev \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
 
@@ -59,8 +57,6 @@ RUN python3 -m pip --no-cache-dir install --upgrade \
 COPY train.py /opt/ml/code/train.py
 COPY trainyolo.sh /opt/ml/code/trainyolo.sh
 COPY convertdataset.py /opt/ml/code/convertdataset.py
-COPY pushdocker.sh /opt/ml/code/pushdocker.sh
-COPY saveocrdata.py /opt/ml/code/saveocrdata.py
 
 # Define train.py as the script entry point
 ENV SAGEMAKER_PROGRAM train.py
