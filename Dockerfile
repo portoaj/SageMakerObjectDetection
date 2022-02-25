@@ -38,8 +38,7 @@ RUN python3 -m pip --no-cache-dir install --upgrade \
     setuptools \
     boto3
 
-# Install PyTorch
-
+# Install yolov5 and its dependencies
 RUN mkdir -p ${WORKDIR}
 RUN cd ${WORKDIR} \
    && git clone https://github.com/ultralytics/yolov5.git \
@@ -49,7 +48,6 @@ RUN cd ${WORKDIR} \
 
 RUN python3 -m pip --no-cache-dir install --upgrade \
     sagemaker-training\
-    pytesseract \
     opencv-python
 
 
